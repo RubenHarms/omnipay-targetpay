@@ -13,6 +13,19 @@ class IdealPurchaseRequest extends PurchaseRequest
     {
         return $this->setParameter('issuer', $value);
     }
+    
+    public function getInformationInCallback()
+    {
+        return $this->getParameter('informationInCallback');
+    }
+    
+    /**
+     * @param $value boolean
+     */
+    public function setInformationInCallback($value)
+    {
+        return $this->setParameter('informationInCallback', $value);
+    }
 
     /**
      * {@inheritdoc}
@@ -30,6 +43,7 @@ class IdealPurchaseRequest extends PurchaseRequest
             'currency' => $this->getCurrency(),
             'returnurl' => $this->getReturnUrl(),
             'reporturl' => $this->getNotifyUrl(),
+            'cinfo_in_callback' => $this->getInformationInCallback()
         );
     }
 
