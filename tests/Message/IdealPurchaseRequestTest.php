@@ -22,10 +22,12 @@ class IdealPurchaseRequestTest extends TestCase
         $this->request->setAmount('100.00');
         $this->request->setDescription('desc');
         $this->request->setReturnUrl('http://localhost/return');
+        $this->request->setInformationInCallback(true);
 
         $data = $this->request->getData();
 
         $this->assertArrayHasKey('rtlo', $data);
+        $this->assertSame(true, $data['informationInCallback']);
         $this->assertSame('0001', $data['bank']);
         $this->assertSame(10000, $data['amount']);
         $this->assertSame('desc', $data['description']);
