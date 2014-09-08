@@ -18,10 +18,7 @@ class IdealPurchaseRequest extends PurchaseRequest
     {
         return $this->getParameter('informationInCallback');
     }
-    
-    /**
-     * @param $value boolean
-     */
+
     public function setInformationInCallback($value)
     {
         return $this->setParameter('informationInCallback', $value);
